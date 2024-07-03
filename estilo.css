@@ -1,7 +1,11 @@
-* {
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+*{
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
@@ -37,69 +41,67 @@ body {
 
     /* Voltar ao canto superior direito */
 }
-
-.container {
-    background: white;
+.container{
+    background-color: #fff;
     border-radius: 30px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.31);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
     position: relative;
+    overflow: hidden;
     width: 768px;
     max-width: 100%;
     min-height: 480px;
 }
 
-.container p {
-    font-size: 16px;
+.container p{
+    font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.3px;
     margin: 20px 0;
 }
 
-.container span {
+.container span{
     font-size: 12px;
 }
 
-.container a {
-    color: #000000;
+.container a{
+    color: #f7f7f7;
     font-size: 13px;
     text-decoration: none;
     margin: 15px 0 10px;
 }
 
-.container button {
-    background: rgb(219, 52, 52);
-    color: rgb(0, 0, 0);
+.container button{
+    background-color: #000000;
+    color: #fcf6f6;
     font-size: 12px;
     padding: 10px 45px;
     border: 1px solid transparent;
-    border-radius: 20px;
-    font-weight: 600px;
-    letter-spacing: 1px;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
     margin-top: 10px;
     cursor: pointer;
-
 }
 
-.container button.hidden {
-    background: transparent;
-    border-color: rgb(99, 90, 90);
+.container button.hidden{
+    background-color: transparent;
+    border-color: #fff3f3;
 }
 
-.container form {
-    background: rgb(184, 167, 167);
+.container form{
+    background: linear-gradient(to right, rgb(100, 17, 17), rgb(9, 9, 70));
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     padding: 0 40px;
     height: 100%;
-
 }
 
-.container input {
-    background: rgb(184, 167, 167);
-    /*  border: 0; */
+.container input{
+    background-color: #e0e0e0;
+    border: none;
     margin: 8px 0;
     padding: 10px 15px;
     font-size: 13px;
@@ -108,96 +110,102 @@ body {
     outline: none;
 }
 
-.form-container {
+.form-container{
     position: absolute;
     top: 0;
     height: 100%;
     transition: all 0.6s ease-in-out;
 }
 
-.sing-in {
+.sign-in{
     left: 0;
     width: 50%;
     z-index: 2;
 }
 
-.container.ation .sing-in {
+.container.active .sign-in{
     transform: translateX(100%);
-    /*  mover o elementona horizontal */
 }
 
-.sing-up {
+.sign-up{
     left: 0;
     width: 50%;
     opacity: 0;
     z-index: 1;
 }
 
-.container.active .sing-up {
+.container.active .sign-up{
     transform: translateX(100%);
     opacity: 1;
     z-index: 5;
+    animation: move 0.6s;
 }
 
-@keyframes move {
-    0%, 49.99% {
+@keyframes move{
+    0%, 49.99%{
         opacity: 0;
         z-index: 1;
     }
-
     50%, 100%{
         opacity: 1;
         z-index: 5;
-        
     }
 }
+
 .social-icons{
     margin: 20px 0;
 }
+
 .social-icons a{
-    border: 1px solid #e0cfcf;
-    border-radius: 20px;
+    border: 1px solid white;
+    border-radius: 20%;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     margin: 0 3px;
     width: 40px;
     height: 40px;
 }
+
 .toggle-container{
     position: absolute;
     top: 0;
     left: 50%;
+    width: 50%;
     height: 100%;
     overflow: hidden;
-    transition: all 6S ease-in-out;
+    transition: all 0.6s ease-in-out;
     border-radius: 150px 0 0 100px;
     z-index: 1000;
-
 }
+
 .container.active .toggle-container{
-    transform: translateX(-100);
+    transform: translateX(-100%);
     border-radius: 0 150px 100px 0;
 }
+
 .toggle{
-    background: #590219;
-    background:linear-gradient(to right black, white);
+    background-color: #fffbf1;
     height: 100%;
-    color: beige;
+    background: linear-gradient(to right, #5c6bc0, #000000);
+    color: #fff;
     position: relative;
     left: -100%;
+    height: 100%;
     width: 200%;
     transform: translateX(0);
     transition: all 0.6s ease-in-out;
 }
-.container.active .toggle {
-    transform: translateX(50%);
 
+.container.active .toggle{
+    transform: translateX(50%);
 }
-.toggle-painel{
+
+.toggle-panel{
     position: absolute;
     width: 50%;
     height: 100%;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -207,9 +215,11 @@ body {
     transform: translateX(0);
     transition: all 0.6s ease-in-out;
 }
+
 .toggle-left{
     transform: translateX(-200%);
 }
+
 .container.active .toggle-left{
     transform: translateX(0);
 }
@@ -217,8 +227,14 @@ body {
 .toggle-right{
     right: 0;
     transform: translateX(0);
-
 }
+
 .container.active .toggle-right{
     transform: translateX(200%);
+}
+h1{
+    color: white;
+}
+span{
+    color: white ;
 }
